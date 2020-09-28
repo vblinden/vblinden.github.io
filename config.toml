@@ -13,7 +13,7 @@ pygmentscodefencesguesssyntax = true
 disqusShortname = "vblinden-blog"
 
 [params]
-	subtitle = "software engineering plus random stuff blog"
+	subtitle = "software engineering and random stuff blog"
 
 	# Optional 64x64 avatar image.
 	#avatar = "https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"
