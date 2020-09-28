@@ -20,7 +20,7 @@ disqusShortname = "vblinden-blog"
 
 	# Content types to disable Disqus on.
 	disableDisqusTypes = ["page"]
-	
+
 	featherIconsCDN = true
 
 	mode = "auto" # "dark" or "auto"
@@ -40,8 +40,8 @@ url = "/posts"
 weight = 2
 
 [[menu.main]]
-name = "All pages"
-url = "/pages"
+name = "Projects"
+url = "/projects"
 weight = 3
 
 [[menu.main]]
