@@ -1,0 +1,83 @@
+baseURL = "https://vblinden.nl"
+languageCode = "en-us"
+title = "vblinden"
+theme = "ink"
+paginate = 5
+
+copyright = "© vblinden"
+
+pygmentsstyle = "vs"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+disqusShortname = "vblinden-blog"
+
+[params]
+	subtitle = "software engineering plus random stuff blog"
+
+	# Optional 64x64 avatar image.
+	#avatar = "https://image.freepik.com/free-vector/young-man-head-with-beard-avatar-character_24877-36786.jpg"
+
+	# Content types to disable Disqus on.
+	disableDisqusTypes = ["page"]
+	
+	featherIconsCDN = true
+
+	mode = "auto" # "dark" or "auto"
+	# customCSS = "css/custom.css"  # Custom CSS applied to default styles.
+	# customDarkCSS = "css/custom-dark.css"  # Custom styles applied to dark mode css.
+	# customJS = ["js/custom.js", "js/custom1.js"]  # Custom JS scripts.
+
+# Nav.
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "All pages"
+url = "/pages"
+weight = 3
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 4
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 5
+
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/vblinden"
+
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/vblinden"
+
+[[params.social]]
+name = "LinkedIn"
+icon = "linkedin"
+url = "https://twitter.com/vblinden"
+
+[[params.social]]
+name = "Mail"
+icon = "mail"
+url = "mailto:blog@vblinden.nl"
+
+[[params.social]]
+name = "RSS"
+icon = "rss"
+url = "/index.xml"
+
+[taxonomies]
+   tag = "tags"
