@@ -24,7 +24,6 @@ jobs:
         run: hugo --minify
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
         run: |
           git config --global user.name 'vblinden'
           git config --global user.email 'hello@vblinden.nl'
