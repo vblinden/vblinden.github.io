@@ -1,4 +1,4 @@
-baseURL = "https://vblinden.nl"
+baseURL = "https://vblinden.nl/"
 languageCode = "en-us"
 title = "vblinden"
 theme = "ink"
