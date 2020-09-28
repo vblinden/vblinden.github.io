@@ -1,6 +1,7 @@
 ---
 title: "Setup Let's Encrypt with Nginx"
 date: 2019-11-14 19:31:13 +0200
+description: When I migrated my VPS (with Ubuntu) to an other host, I needed to setup Nginx again with Let's...
 tags: [lets-encrypt, nginx]
 ---
 

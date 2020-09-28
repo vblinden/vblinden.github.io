@@ -1,6 +1,7 @@
 ---
 title: "What did you undesign?"
 date: 2020-09-28 21:21:37 +0200
+description: In the video above Eric Berger from Ars Technica asks the question on how Elon Musk and the team at SpaceX build the iteration...
 tags: [elon, musk, undesign]
 ---
 
