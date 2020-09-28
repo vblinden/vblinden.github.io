@@ -4,7 +4,7 @@ title = "vblinden"
 theme = "ink"
 paginate = 5
 
-copyright = "© vblinden a"
+copyright = "© vblinden"
 
 pygmentsstyle = "vs"
 pygmentscodefences = true
