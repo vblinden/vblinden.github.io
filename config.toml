@@ -2,7 +2,7 @@ baseURL = "https://vblinden.nl/"
 languageCode = "en-us"
 title = "vblinden"
 theme = "ink"
-paginate = 5
+paginate = 40
 
 copyright = "© vblinden"
 
