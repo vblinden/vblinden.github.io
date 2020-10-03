@@ -32,4 +32,9 @@ pecl config-get ext_dir | pbcopy
 mkdir -p $PASTECLIPBOARD
 ```
 
-I hope this helps anybody who also is running into this issue.
+You should also manually export the `PKG_CONFIG_PATH` because Homebrew fails to do so.
+```shell script
+export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/Cellar/rabbitmq-c/0.10.0/lib/pkgconfig"
+```
+
+Now run the two commands again and it should work. I hope this helps anybody who also is running into this issue.
