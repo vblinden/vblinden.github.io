@@ -4,7 +4,10 @@ services:
   web:
     image: nginx:1.19.3-alpine
     ports:
-      - 5001:80
+      - 5000:80
     volumes:
       - ./public:/usr/share/nginx/html:ro
-
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.web.rule=Host(`vblinden.nl`)'
+      - 'traefik.port=5000'
