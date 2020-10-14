@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3.3'
 
 services:
   web:
@@ -8,5 +8,14 @@ services:
     volumes:
       - ./public:/usr/share/nginx/html:ro
     labels:
-      - 'traefik.enable=true'
-      - 'traefik.http.routers.vblinden.rule=Host(`vblinden.xyz`)'
+      - traefik.enable=true
+      - traefik.docker.network=traefik-public
+      - traefik.constraint-label=traefik-public
+      - traefik.http.routers.vblinden-http.rule=Host(`vblinden.xyz`)
+      - traefik.http.routers.vblinden-http.entrypoints=http
+      - traefik.http.routers.vblinden-http.middlewares=https-redirect
+      - traefik.http.routers.vblinden-https.rule=Host(`vblinden.xyz`)
+      - traefik.http.routers.vblinden-https.entrypoints=https
+      - traefik.http.routers.vblinden-https.tls=true
+      - traefik.http.routers.vblinden-https.tls.certresolver=le
+      - traefik.http.services.vblinden.loadbalancer.server.port=5000
