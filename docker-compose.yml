@@ -9,18 +9,19 @@ services:
       - ./public:/usr/share/nginx/html:ro
     networks:
       - traefik-public
-    labels:
-      - traefik.enable=true
-      - traefik.docker.network=traefik-public
-      - traefik.constraint-label=traefik-public
-      - traefik.http.routers.vblinden-http.rule=Host(`vblinden.xyz`)
-      - traefik.http.routers.vblinden-http.entrypoints=http
-      - traefik.http.routers.vblinden-http.middlewares=https-redirect
-      - traefik.http.routers.vblinden-https.rule=Host(`vblinden.xyz`)
-      - traefik.http.routers.vblinden-https.entrypoints=https
-      - traefik.http.routers.vblinden-https.tls=true
-      - traefik.http.routers.vblinden-https.tls.certresolver=le
-      - traefik.http.services.vblinden.loadbalancer.server.port=5000
+    deploy:
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.vblinden-http.rule=Host(`vblinden.xyz`)
+        - traefik.http.routers.vblinden-http.entrypoints=http
+        - traefik.http.routers.vblinden-http.middlewares=https-redirect
+        - traefik.http.routers.vblinden-https.rule=Host(`vblinden.xyz`)
+        - traefik.http.routers.vblinden-https.entrypoints=https
+        - traefik.http.routers.vblinden-https.tls=true
+        - traefik.http.routers.vblinden-https.tls.certresolver=le
+        - traefik.http.services.vblinden.loadbalancer.server.port=5000
 
 networks:
   traefik-public:
