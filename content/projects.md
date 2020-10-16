@@ -9,7 +9,7 @@ These are some pet projects I like to work on in my free time.
 Super minimal and simple 24/7 uptime monitoring service. Create an account, add an url, and it will check it every 10 minutes for free. When the url is down, it will notify you via email. It also offers 1 minute checks for a small fee.
 
 #### [nederboard.nl](https://nederboard.nl)
-A soundboard with snippets from all kinds of different meme videos in the Netherlands. Including classics like: [Helemaal knettah](https://nederboard.nl/board/helemaalknettah), [Rustahg](https://nederboard.nl/board/rustahg), [Mand](https://nederboard.nl/board/mandje) and many more!"
+A soundboard with snippets from all kinds of different meme videos in the Netherlands. Including classics like: [Helemaal knettah](https://nederboard.nl/board/helemaalknettah), [Rustahg](https://nederboard.nl/board/rustahg), [Mand](https://nederboard.nl/board/mandje) and many more!
 
 #### [iloveitshipit.com](https://iloveitshipit.com)
 Small soundboard of the legendary words spoken by [Scott Hanselman](https://www.hanselman.com/) during a .NET conference back in the day.
