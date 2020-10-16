@@ -11,17 +11,25 @@ services:
       - traefik-public
     deploy:
       labels:
-        - traefik.enable=true
-        - traefik.docker.network=traefik-public
-        - traefik.constraint-label=traefik-public
-        - traefik.http.routers.vblinden-http.rule=Host(`vblinden.nl`)
-        - traefik.http.routers.vblinden-http.entrypoints=http
-        - traefik.http.routers.vblinden-http.middlewares=https-redirect
-        - traefik.http.routers.vblinden-https.rule=Host(`vblinden.nl`)
-        - traefik.http.routers.vblinden-https.entrypoints=https
-        - traefik.http.routers.vblinden-https.tls=true
-        - traefik.http.routers.vblinden-https.tls.certresolver=le
-        - traefik.http.services.vblinden.loadbalancer.server.port=80
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik-public"
+        - "traefik.constraint-label=traefik-public"
+        - "traefik.http.routers.vblinden-http.entrypoints=http"
+        - "traefik.http.routers.vblinden-http.rule=Host(`vblinden.nl`) || Host(`www.vblinden.nl`)"
+        - "traefik.http.middlewares.vblinden-redirect.redirectregex.regex=^http://(?:www.)?vblinden.nl/(.*)"
+        - "traefik.http.middlewares.vblinden-redirect.redirectregex.replacement=https://www.vblinden.nl/$${1}"
+        - "traefik.http.routers.web.middlewares=vblinden-redirect"
+        - "traefik.http.routers.vblinden-http.middlewares=https-redirect"
+        - "traefik.http.routers.vblinden-https.rule=Host(`vblinden.nl`) || Host(`www.vblinden.nl`)"
+        - "traefik.http.middlewares.vblinden-redirect-https.redirectregex.regex=^https://jamupuri.com/(.*)"
+        - "traefik.http.middlewares.vblinden-redirect-https.redirectregex.replacement=https://www.jamupuri.com/$${1}"
+        - "traefik.http.routers.web-secure.middlewares=vblinden-redirect-https"
+        - "traefik.http.routers.vblinden-https.entrypoints=https"
+        - "traefik.http.routers.vblinden-https.tls=true"
+        - "traefik.http.routers.vblinden-https.tls.certresolver=le"
+        - "traefik.http.services.vblinden.loadbalancer.server.port=80"
+        - "traefik.http.middlewares.vblinden-redirect.redirectregex.permanent=true"
+        - "traefik.http.middlewares.vblinden-redirect-https.redirectregex.permanent=true"
 
 networks:
   traefik-public:
