@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   web:
-    image: vblinden/vblinden
+    image: vblinden/vblinden:latest
     ports:
       - 5100:80
     networks:
