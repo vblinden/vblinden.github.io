@@ -1,10 +1,9 @@
 FROM alpine:3.12 AS build
 
 ENV HUGO_VERSION=0.76.5
-ENV HUGO_TYPE=_extended
 ENV HUGO_ID=hugo${HUGO_TYPE}_${HUGO_VERSION}
 
-RUN wget -O - https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_ID}_Linux-64bit.tar.gz | tar -xz -C /tmp \
+RUN wget -O - https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_ID}_Linux-ARM64.tar.gz | tar -xz -C /tmp \
     && mkdir -p /usr/local/sbin \
     && mv /tmp/hugo /usr/local/sbin/hugo \
     && rm -rf /tmp/${HUGO_ID}_linux_amd64 \
