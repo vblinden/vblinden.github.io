@@ -1,0 +1,76 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: vblinden
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vblinden
+  namespace: vblinden
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vblinden
+  template:
+    metadata:
+      labels:
+        app: vblinden
+    spec:
+      containers:
+        - name: vblinden
+          image: vblinden/vblinden:latest
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vblinden
+  namespace: vblinden
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+      name: tcp
+  selector:
+    app: vblinden
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vblinden
+  namespace: vblinden
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    kubernetes.io/tls-acme: "true"
+    ingress.kubernetes.io/ssl-redirect: "true"
+    ingress.kubernetes.io/ssl-temporary-redirect: "true"
+    ingress.kubernetes.io/ssl-host: "vblinden.nl"
+    traefik.frontend.rule.type: PathPrefixStrip
+    traefik.ingress.kubernetes.io/redirect-regex: "^https://vblinden.nl(.*)"
+    traefik.ingress.kubernetes.io/redirect-replacement: "https://www.vblinden.nl/$1"
+spec:
+  rules:
+    - host: "vblinden.nl"
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: vblinden
+                port:
+                  number: 80
+    - host: "www.vblinden.nl"
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: vblinden
+                port:
+                  number: 80
